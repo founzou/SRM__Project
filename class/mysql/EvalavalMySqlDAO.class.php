@@ -28,6 +28,15 @@ class EvalavalMySqlDAO implements EvalavalDAO{
 		$sqlQuery = new SqlQuery($sql);
 		return $this->getList($sqlQuery);
 	}
+
+	/**
+	 * Get all evaluations with suppliers informations from table
+	 */
+	public function queryAllWithSuppliers(){
+		$sql = 'SELECT ea.*, f.nom_frn, f.prenom_frn, f.email_frn, ad.nom_admin, ad.prenom_admin, ac.nom_acht, ac.prenom_acht FROM evalaval ea LEFT JOIN fournisseur f ON ea.id_frn = f.id_frn LEFT JOIN admin ad ON ea.id_admin = ad.id_admin LEFT JOIN acheteur ac ON ea.id_acht = ac.id_acht';
+		$sqlQuery = new SqlQuery($sql);
+		return $this->getListWithSuppliers($sqlQuery);
+	}
 	
 	/**
 	 * Get all records from table ordered by field
@@ -229,6 +238,44 @@ class EvalavalMySqlDAO implements EvalavalDAO{
 		$ret = array();
 		for($i=0;$i<count($tab);$i++){
 			$ret[$i] = $this->readRow($tab[$i]);
+		}
+		return $ret;
+	}
+
+	protected function readRowWithSupplier($row){
+		$evalaval = new Evalaval();
+		
+		$evalaval->id = $row['id_eav'];
+		$evalaval->idAdmin = $row['id_admin'];
+		$evalaval->idAcht = $row['id_acht'];
+		$evalaval->idFrn = $row['id_frn'];
+		$evalaval->etat = $row['etatEav'];
+		$evalaval->date = $row['dateEav'];
+		$evalaval->score = $row['scoreEav'];
+		$evalaval->classe = $row['classeEav'];
+		$evalaval->type = 'Aval';
+		$evalaval->nomFrn = $row['nom_frn'];
+		$evalaval->prenomFrn = $row['prenom_frn'];
+		$evalaval->emailFrn = $row['email_frn'];
+		if(!is_null($row['nom_admin'])) {
+			$evalaval->evaluatorFullName = $row['nom_admin'] . ' ' . $row['prenom_admin'];
+			$evalaval->evaluatorRole = 'Admin'; 	
+		} else if(!is_null($row['nom_acht'])) {
+			$evalaval->evaluatorFullName = $row['nom_acht'] . ' ' . $row['prenom_acht'];
+			$evalaval->evaluatorRole = 'Acheteur'; 	
+		} else {
+			$evalaval->evaluatorFullName = '-';
+			$evalaval->evaluatorRole = '-'; 	
+		}
+
+		return $evalaval;
+	}
+	
+	protected function getListWithSuppliers($sqlQuery){
+		$tab = QueryExecutor::execute($sqlQuery);
+		$ret = array();
+		for($i=0;$i<count($tab);$i++){
+			$ret[$i] = $this->readRowWithSupplier($tab[$i]);
 		}
 		return $ret;
 	}
