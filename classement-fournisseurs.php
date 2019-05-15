@@ -69,7 +69,7 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel">
                                     <div class="x_title">
-                                        <h2>Historique des évaluations</h2>
+                                        <h2>Classement des fournisseures</h2>
                                         <ul class="nav navbar-right panel_toolbox">
                                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                             </li>
@@ -107,7 +107,22 @@
                                                 $evalsAval = $avalDao->queryAllWithSuppliers();
                                                 $amontDao = new EvalamontMySqlDAO();
                                                 $evalsAmont = $amontDao->queryAllWithSuppliers();
+
+                                                $allEvals = array_merge($evalsAval, $evalsAmont);
+
+                                                // sort all evals by descending dates
+                                                usort($allEvals, function($a, $b) {
+                                                    return strtotime($b->date) - strtotime($a->date);
+                                                });
+                                                $alreadyAddedEvals = [];
+                                                $evalsToDisplay = [];
                                                 foreach (array_merge($evalsAval, $evalsAmont) as $eval) {
+                                                    if(!array_key_exists($eval->idFrn, $alreadyAddedEvals)) {
+                                                        $alreadyAddedEvals[$eval->idFrn] = TRUE;
+                                                        array_push($evalsToDisplay, $eval);
+                                                    }
+                                                }
+                                                foreach ($evalsToDisplay as $eval) {
                                                     ?>
                                                     <tr>
                                                         <td><?php echo $eval->idFrn; ?></td>
@@ -142,11 +157,10 @@
             </div>
         </div>
         <script>
-            var datatableOrderIndex = 6;
+            var datatableOrderIndex = 7;
             var datatableOrderDirection = 'desc';
         </script>
         <?php include 'script.php'; ?>
-
     </body>
 
 </html>

@@ -59,12 +59,14 @@ if ($_SESSION['cpt'] == 'admin') {
                         <li><a href="frn_am.php"><i class="fa fa-file-text"></i>Évaluation en amont</a></li>
                         <li><a href="frn_av.php"><i class="fa fa-file-text"></i>Évaluation en aval</a></li>
                         <li><a href="historique-evaluations.php"><i class="fa fa-history"></i>Historique des évaluations</a></li>
+                        <li><a href="classement-fournisseurs.php"><i class="fa fa-sort"></i>Classement des fournisseurs</a></li>
                     <?php } else if ($_SESSION['cpt'] == 'acht') { ?>
                         <li><a href="fournisseurs.php"><i class="fa fa-user"></i>Fournisseurs</a></li>
                         <li><a href="all_rec.php"><i class="fa fa-warning"></i>Réclamations</a></li>
                         <li><a href="frn_am.php"><i class="fa fa-file-text"></i>Évaluation en amont</a></li>
                         <li><a href="frn_av.php"><i class="fa fa-file-text"></i>Évaluation en aval</a></li>
                         <li><a href="historique-evaluations.php"><i class="fa fa-history"></i>Historique des évaluations</a></li>
+                        <li><a href="classement-fournisseurs.php"><i class="fa fa-sort"></i>Classement des fournisseurs</a></li>
                     <?php } else if ($_SESSION['cpt'] == 'frn') { ?>
                         <li><a href="allReclamation.php"><i class="fa fa-warning"></i>Réclamations</a></li>
                         <li><a href="rfi.php"><i class="fa fa-file-text-o"></i>RFI</a></li>
