@@ -236,6 +236,7 @@ $(document).ready(function () {
 
     });
     $("#datatable-buttons").DataTable({
+        "order": [[ typeof datatableOrderIndex === 'undefined' ? 0 : datatableOrderIndex, typeof datatableOrderDirection === 'undefined' ? 'asc' : datatableOrderDirection ]],
         "bDestroy": true,
         dom: "<'row'<'col-sm-4'l><'col-sm-3 text-center'B><'col-sm-3'f>>tp",
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Tous"]],
