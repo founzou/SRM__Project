@@ -94,9 +94,8 @@
                                                 <?php
                                                 include_once 'include_dao.php';
                                                 $rec = new ReclamationMySqlDAO();
-                                                $rec = $rec->queryAll();
+                                                $rec = $rec->queryByIdFrn($_SESSION['idlogin']);
                                                 foreach ($rec as $value) {
-                                                    if ($value->idFrn == $_SESSION['idlogin']) {
                                                         ?>
                                                         <tr>
                                                             <td><?php echo $value->idRec; ?></td>
@@ -109,7 +108,6 @@
                                                             </td>
                                                         </tr>
                                                     <?php
-                                                    }
                                                 }
                                                 ?>
                                             </tbody>

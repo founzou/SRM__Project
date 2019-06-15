@@ -214,22 +214,22 @@
                                                             <p style="margin: 1%">
                                                                 <?php
                                                                 if ($pj[0]->photoPj != null) {
-                                                                    echo '- Photo: <a download class="btn btn-link" target=_blank href=Controlleurs/uploaded/' . $pj[0]->photoPj . '><i class="fa fa-download"></i> Telecharger </a><br>';
+                                                                    echo '- Photo: <a download class="btn btn-link" target=_blank href=Controlleurs/uploaded/rec/' . $_GET['idRec'] . '/' . $pj[0]->photoPj . '><i class="fa fa-download"></i> Telecharger </a><br>';
                                                                 }
                                                                 if ($pj[0]->emailPj != null) {
-                                                                    echo '- Email: <a download class="btn btn-link" target=_blank href=Controlleurs/uploaded/' . $pj[0]->emailPj . '><i class="fa fa-download"></i> Telecharger </a><br>';
+                                                                    echo '- Email: <a download class="btn btn-link" target=_blank href=Controlleurs/uploaded/rec/' . $_GET['idRec'] . '/' . $pj[0]->emailPj . '><i class="fa fa-download"></i> Telecharger </a><br>';
                                                                 }
                                                                 if ($pj[0]->bcPj != null) {
-                                                                    echo '- Bon de commande: <a download class="btn btn-link" target=_blank href=Controlleurs/uploaded/' . $pj[0]->bcPj . '><i class="fa fa-download"></i> Telecharger </a><br>';
+                                                                    echo '- Bon de commande: <a download class="btn btn-link" target=_blank href=Controlleurs/uploaded/rec/' . $_GET['idRec'] . '/' . $pj[0]->bcPj . '><i class="fa fa-download"></i> Telecharger </a><br>';
                                                                 }
                                                                 if ($pj[0]->blPj != null) {
-                                                                    echo '- Bon de livraison: <a download class="btn btn-link" target=_blank href=Controlleurs/uploaded/' . $pj[0]->blPj . '><i class="fa fa-download"></i> Telecharger </a><br>';
+                                                                    echo '- Bon de livraison: <a download class="btn btn-link" target=_blank href=Controlleurs/uploaded/rec/' . $_GET['idRec'] . '/' . $pj[0]->blPj . '><i class="fa fa-download"></i> Telecharger </a><br>';
                                                                 }
                                                                 if ($pj[0]->riPj != null) {
-                                                                    echo '- Rapport d’inventaire: <a download class="btn btn-link" target=_blank href=Controlleurs/uploaded/' . $pj[0]->riPj . '><i class="fa fa-download"></i> Telecharger </a><br>';
+                                                                    echo '- Rapport d’inventaire: <a download class="btn btn-link" target=_blank href=Controlleurs/uploaded/rec/' . $_GET['idRec'] . '/' . $pj[0]->riPj . '><i class="fa fa-download"></i> Telecharger </a><br>';
                                                                 }
                                                                 if ($pj[0]->autrePj != null) {
-                                                                    echo '- Autre: <a download class="btn btn-link" target=_blank href=Controlleurs/uploaded/' . $pj[0]->autrePj . '><i class="fa fa-download"></i> Telecharger </a><br>';
+                                                                    echo '- Autre: <a download class="btn btn-link" target=_blank href=Controlleurs/uploaded/rec/' . $_GET['idRec'] . '/' . $pj[0]->autrePj . '><i class="fa fa-download"></i> Telecharger </a><br>';
                                                                 }
                                                                 ?>
                                                             </p>
