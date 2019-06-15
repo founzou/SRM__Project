@@ -90,6 +90,7 @@
                                     <div class="x_content">
 
                                         <form  method="POST" enctype="multipart/form-data" action="Controlleurs/add_rec.php">
+                                            <input type="hidden" name="frn" value="<?php echo $_GET['frn']; ?>" />
                                             <table border="1" cellspacing="0" cellpadding="0" align="left" width="730" style="margin-left: 10%">
                                                 <tbody>
                                                     <tr>
@@ -198,9 +199,7 @@
                                                                 <strong>Descriptif:</strong>
                                                             </p>
                                                             <p>
-                                                                <textarea rows="4" style="width: 98%;margin: 1%" name="description">
-                                                                
-                                                                </textarea>
+                                                                <textarea rows="4" style="width: 98%;margin: 1%" name="description"></textarea>
                                                             </p>
                                                         </td>
                                                     </tr>
