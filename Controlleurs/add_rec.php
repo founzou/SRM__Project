@@ -46,7 +46,10 @@ if (!empty($frn) && !empty($nc) && !empty($contact)) {
     $add = new PiecejointesMySqlDAO();
     $pj = new Piecejointe();
     $MAX_FILE_SIZE = 3000000;
-    $folder = 'uploaded/rec/';
+    $folder = 'uploaded/rec/' . $obj->idRec . '/';
+    if (!file_exists($folder)) {
+        mkdir($folder, 0777, true);
+    }   
     if (!empty($blc) && $_FILES['bl']['size'] > 0) {
         $fname = $_FILES['bl']['name'];
         $ftype = $_FILES['bl']['type'];
@@ -55,7 +58,7 @@ if (!empty($frn) && !empty($nc) && !empty($contact)) {
         $file = $_FILES['bl'];
         $nomImage = explode('.', $fname);
         $nomIma = date('dmYHis');
-        $image = 'P_' . $nomIma . '.' . $nomImage[1];
+        $image = 'blc_' . $nomIma . '.' . $nomImage[1];
         copy($ftmp, '' . $folder . '' . $image . '');
         $pj->blPj = $image;
     }
@@ -67,7 +70,7 @@ if (!empty($frn) && !empty($nc) && !empty($contact)) {
         $file = $_FILES['photo'];
         $nomImage = explode('.', $fname);
         $nomIma = date('dmYHis');
-        $image = 'P_' . $nomIma . '.' . $nomImage[1];
+        $image = 'photoc_' . $nomIma . '.' . $nomImage[1];
         copy($ftmp, '' . $folder . '' . $image . '');
         $pj->photoPj = $image;
     }
@@ -79,7 +82,7 @@ if (!empty($frn) && !empty($nc) && !empty($contact)) {
         $file = $_FILES['email'];
         $nomImage = explode('.', $fname);
         $nomIma = date('dmYHis');
-        $image = 'P_' . $nomIma . '.' . $nomImage[1];
+        $image = 'emailc_' . $nomIma . '.' . $nomImage[1];
         copy($ftmp, '' . $folder . '' . $image . '');
         $pj->emailPj = $image;
     }
@@ -91,7 +94,7 @@ if (!empty($frn) && !empty($nc) && !empty($contact)) {
         $file = $_FILES['bc'];
         $nomImage = explode('.', $fname);
         $nomIma = date('dmYHis');
-        $image = 'P_' . $nomIma . '.' . $nomImage[1];
+        $image = 'bcc_' . $nomIma . '.' . $nomImage[1];
         copy($ftmp, '' . $folder . '' . $image . '');
         $pj->bcPj = $image;
     }
@@ -103,7 +106,7 @@ if (!empty($frn) && !empty($nc) && !empty($contact)) {
         $file = $_FILES['ri'];
         $nomImage = explode('.', $fname);
         $nomIma = date('dmYHis');
-        $image = 'P_' . $nomIma . '.' . $nomImage[1];
+        $image = 'ric_' . $nomIma . '.' . $nomImage[1];
         copy($ftmp, '' . $folder . '' . $image . '');
         $pj->riPj = $image;
     }
@@ -115,7 +118,7 @@ if (!empty($frn) && !empty($nc) && !empty($contact)) {
         $file = $_FILES['autrepj'];
         $nomImage = explode('.', $fname);
         $nomIma = date('dmYHis');
-        $image = 'P_' . $nomIma . '.' . $nomImage[1];
+        $image = 'autrepjc_' . $nomIma . '.' . $nomImage[1];
         copy($ftmp, '' . $folder . '' . $image . '');
         $pj->autrePj = $image;
     }
