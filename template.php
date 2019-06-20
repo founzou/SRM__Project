@@ -26,7 +26,8 @@ if ($_SESSION['cpt'] == 'admin') {
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="Controlleurs/uploaded/logo.png" alt="login" width="100%" height="90%"/></a>
+            <a href="index.php" class="site_title"><img src="Controlleurs/uploaded/logo.png" alt="login" width="100%"
+                    height="90%" /></a>
         </div>
         <div class="clearfix"></div>
         <!-- menu profile quick info -->
@@ -50,26 +51,32 @@ if ($_SESSION['cpt'] == 'admin') {
                 <ul class="nav side-menu">
                     <li><a href="index.php"><i class="fa fa-home"></i> Dashboard</a></li>
                     <?php if ($_SESSION['cpt'] == 'admin') { ?>
-                        <li><a href="admins.php"><i class="fa fa-user"></i>Admins</a></li>
-                        <li><a href="acheteurs.php"><i class="fa fa-user"></i>Acheteurs</a></li>
-                        <li><a href="webMaster.php"><i class="fa fa-user"></i>Web Master</a></li>
-                        <li><a href="segements.php"><i class="fa fa-archive"></i>Segments</a></li>
-                        <li><a href="familleAchats.php"><i class="fa fa-group"></i>Familles d'achats</a></li>
-                        <li><a href="all_rec.php"><i class="fa fa-warning"></i>Réclamations</a></li>
-                        <li><a href="frn_am.php"><i class="fa fa-file-text"></i>Évaluation en amont</a></li>
-                        <li><a href="frn_av.php"><i class="fa fa-file-text"></i>Évaluation en aval</a></li>
-                        <li><a href="historique-evaluations.php"><i class="fa fa-history"></i>Historique des évaluations</a></li>
-                        <li><a href="classement-fournisseurs.php"><i class="fa fa-sort"></i>Classement des fournisseurs</a></li>
+                    <li><a href="admins.php"><i class="fa fa-user"></i>Admins</a></li>
+                    <li><a href="acheteurs.php"><i class="fa fa-user"></i>Acheteurs</a></li>
+                    <li><a href="webMaster.php"><i class="fa fa-user"></i>Web Master</a></li>
+                    <li><a href="segements.php"><i class="fa fa-archive"></i>Segments</a></li>
+                    <li><a href="familleAchats.php"><i class="fa fa-group"></i>Familles d'achats</a></li>
+                    <li><a href="all_rec.php"><i class="fa fa-warning"></i>Réclamations</a></li>
+                    <li><a href="allReclamation.php"><i class="fa fa-history"></i>Historique des reclamations</a></li>
+                    <li><a href="frn_am.php"><i class="fa fa-file-text"></i>Évaluation en amont</a></li>
+                    <li><a href="frn_av.php"><i class="fa fa-file-text"></i>Évaluation en aval</a></li>
+                    <li><a href="historique-evaluations.php"><i class="fa fa-history"></i>Historique des évaluations</a>
+                    </li>
+                    <li><a href="classement-fournisseurs.php"><i class="fa fa-sort"></i>Classement des fournisseurs</a>
+                    </li>
                     <?php } else if ($_SESSION['cpt'] == 'acht') { ?>
-                        <li><a href="fournisseurs.php"><i class="fa fa-user"></i>Fournisseurs</a></li>
-                        <li><a href="all_rec.php"><i class="fa fa-warning"></i>Réclamations</a></li>
-                        <li><a href="frn_am.php"><i class="fa fa-file-text"></i>Évaluation en amont</a></li>
-                        <li><a href="frn_av.php"><i class="fa fa-file-text"></i>Évaluation en aval</a></li>
-                        <li><a href="historique-evaluations.php"><i class="fa fa-history"></i>Historique des évaluations</a></li>
-                        <li><a href="classement-fournisseurs.php"><i class="fa fa-sort"></i>Classement des fournisseurs</a></li>
+                    <li><a href="fournisseurs.php"><i class="fa fa-user"></i>Fournisseurs</a></li>
+                    <li><a href="all_rec.php"><i class="fa fa-warning"></i>Réclamations</a></li>
+                    <li><a href="allReclamation.php"><i class="fa fa-history"></i>Historique des reclamations</a></li>
+                    <li><a href="frn_am.php"><i class="fa fa-file-text"></i>Évaluation en amont</a></li>
+                    <li><a href="frn_av.php"><i class="fa fa-file-text"></i>Évaluation en aval</a></li>
+                    <li><a href="historique-evaluations.php"><i class="fa fa-history"></i>Historique des évaluations</a>
+                    </li>
+                    <li><a href="classement-fournisseurs.php"><i class="fa fa-sort"></i>Classement des fournisseurs</a>
+                    </li>
                     <?php } else if ($_SESSION['cpt'] == 'frn') { ?>
-                        <li><a href="allReclamation.php"><i class="fa fa-warning"></i>Réclamations</a></li>
-                        <li><a href="rfi.php"><i class="fa fa-file-text-o"></i>RFI</a></li>
+                    <li><a href="allReclamation.php"><i class="fa fa-history"></i>Historique des reclamations</a></li>
+                    <li><a href="rfi.php"><i class="fa fa-file-text-o"></i>RFI</a></li>
                     <?php } ?>
                 </ul>
             </div>
@@ -104,13 +111,15 @@ if ($_SESSION['cpt'] == 'admin') {
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="">
-                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                        aria-expanded="false">
                         <img src="asset/img/user.png" alt=""><?php echo $nom; ?>
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
                         <li><a href="javascript:;"> Profile</a></li>
-                        <li><a href="Controlleurs/deconnexion.php"><i class="fa fa-sign-out pull-right"></i>Déconnexion</a></li>
+                        <li><a href="Controlleurs/deconnexion.php"><i
+                                    class="fa fa-sign-out pull-right"></i>Déconnexion</a></li>
                     </ul>
                 </li>
                 <!--
