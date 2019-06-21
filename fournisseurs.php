@@ -180,8 +180,8 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Nom</th>
-                                                <th>Prénom</th>
+                                                <th>Nom de société</th>
+                                                <th>Nom de responsable</th>
                                                 <th>Émail</th>
                                                 <th>Action</th>
                                             </tr>

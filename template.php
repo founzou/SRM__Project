@@ -49,7 +49,7 @@ if ($_SESSION['cpt'] == 'admin') {
             <div class="menu_section">
                 <h3>Menu</h3>
                 <ul class="nav side-menu">
-                    <li><a href="index.php"><i class="fa fa-home"></i> Dashboard</a></li>
+                    <!-- <li><a href="index.php"><i class="fa fa-home"></i> Dashboard</a></li>-->
                     <?php if ($_SESSION['cpt'] == 'admin') { ?>
                     <li><a href="admins.php"><i class="fa fa-user"></i>Admins</a></li>
                     <li><a href="acheteurs.php"><i class="fa fa-user"></i>Acheteurs</a></li>
